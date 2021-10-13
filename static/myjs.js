@@ -316,3 +316,15 @@ function to_kakao() {
         }
     })
 }
+
+function test() {
+    console.log('test')
+    $.ajax({
+        type: "POST",
+        url: "http://bestmealeverelasticbeanstalk-env.eba-p2pvdgmq.ap-northeast-2.elasticbeanstalk.com/test",
+        data: {},
+        success: function (response) {
+            alert(response['msg'])
+        }
+    })
+}
