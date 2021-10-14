@@ -103,7 +103,7 @@
             }
             $.ajax({
                 type: "POST",
-                url: "/sign_up/save",
+                url: "http://bestmealeverelasticbeanstalk-env.eba-p2pvdgmq.ap-northeast-2.elasticbeanstalk.com/sign_up/save",
                 data: {
                     username_give: username,
                     password_give: password
@@ -151,7 +151,7 @@
             $("#help-id").addClass("is-loading")
             $.ajax({
                 type: "POST",
-                url: "/sign_up/check_dup",
+                url: "http://bestmealeverelasticbeanstalk-env.eba-p2pvdgmq.ap-northeast-2.elasticbeanstalk.com/sign_up/check_dup",
                 data: {
                     username_give: username
                 },
