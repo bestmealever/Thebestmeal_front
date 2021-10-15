@@ -32,7 +32,7 @@
             let password = $("#input-password").val()
 
             if (username == "") {
-                $("#help-id-login").text("아이디를 입력해주세요.")
+                $("#help-id-login").text("아이디를 입력하세요.")
                 $("#input-username").focus()
                 return;
             } else {
@@ -103,7 +103,7 @@
             }
             $.ajax({
                 type: "POST",
-                url: "http://bestmealeverelasticbeanstalk-env.eba-p2pvdgmq.ap-northeast-2.elasticbeanstalk.com/sign_up/save",
+                url: "/sign_up/save",
                 data: {
                     username_give: username,
                     password_give: password
@@ -151,7 +151,7 @@
             $("#help-id").addClass("is-loading")
             $.ajax({
                 type: "POST",
-                url: "http://bestmealeverelasticbeanstalk-env.eba-p2pvdgmq.ap-northeast-2.elasticbeanstalk.com/sign_up/check_dup",
+                url: "/sign_up/check_dup",
                 data: {
                     username_give: username
                 },
