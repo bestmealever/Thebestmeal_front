@@ -13,7 +13,8 @@ function want() {
         data: {want_give: btn_val},
         success: function (response) {
             if (response['result'] === 'fail') {
-                alert(response['msg'])
+                $("#modal-post").addClass("is-active");
+                console.log('want');
             } else {
                 let temp_html = `<div class="question-h">
                                     <p class="question-style"> Q.2 오늘 기분은 어때요? </p>
@@ -57,7 +58,8 @@ function want_no() {
         url: "/want_no",
         data: {},
         success: function (response) {
-            alert(response['msg'])
+            $("#modal-post2").addClass("is-active");
+            console.log('want_no');
             let temp_html = `        <div class="question-h">
                                         <p class="question-style"> Q.2 그럼 어제는 뭐 먹었어요? </p>
                                     </div>
@@ -118,7 +120,8 @@ function yesterday() {
         data: {yesterday_give: btn_val},
         success: function (response) {
             if (response['result'] === 'fail') {
-                alert(response['msg'])
+                $("#modal-post").addClass("is-active");
+                console.log('yesterday');
             } else {
                 let temp_html = `<div class="question-h">
                                     <p class="question-style"> Q.3 오늘 기분은 어때요? </p>
@@ -161,7 +164,8 @@ function yesterday_no() {
         url: "/yesterday_no",
         data: {},
         success: function (response) {
-            alert(response['msg'])
+            $("#modal-post3").addClass("is-active");
+            console.log('yesterday_no');
             let temp_html = `<div class="question-h">
                                 <p class="question-style"> Q.3 오늘 기분은 어때요? </p>
                             </div>
@@ -210,7 +214,8 @@ function feeling() {
         data: {feeling_give: btn_val},
         success: function (response) {
             if (response['result'] === 'fail') {
-                alert(response['msg'])
+                $("#modal-post").addClass("is-active");
+                console.log('feeling');
             } else {
                 console.log(response['chosen'])
                 let temp_html = `<div class="question-h">
@@ -256,7 +261,8 @@ function feeling_no() {
         url: "/feeling_no",
         data: {},
         success: function (response) {
-            alert(response['msg'])
+            $("#modal-post4").addClass("is-active");
+            console.log('feeling');
         }
     })
 }
@@ -276,23 +282,19 @@ function retry() {
                                 <button class="button next-stage" onclick="retry()">마음에 안들어요...</button>
                             </div>
                             <!--이거 먹을게요 모닲-->
-                                <div class="modal" id="modal-post">
-                                    <div class="modal-background" onclick='$("#modal-post").removeClass("is-active")'></div>
-                                    <div class="modal-content">
-                                        <div class="box">
-                                            <div class="modal-card">
-                                                <header class="modal-card-head">
-                                                  <h5 class="modal-card-title" id="modal-label">식당을 추천받기 위해 주소를 입력해주세요.</h5>
-                                                  <button class="button modal-close" data-bs-dismiss="modal" aria-label="close"></button>
-                                                </header>
-                                                <section class="modal-card-body">
-                                                  <input type="text" class="form-control" id="address" placeholder="주소">
-                                                </section>
-                                                <footer class="modal-card-foot">
-                                                  <button class="button" onclick="to_kakao()">추천!</button>
-                                                </footer>
+                                <div class="modal" id="modal-post5">
+                                    <div class="modal-background" onclick='$("#modal-post5").removeClass("is-active")'></div>
+                                    <div class="modal-content" style="width: 800px;">
+                                        <header class="modal-card-head">
+                                          <h5 class="modal-card-title" id="modal-label">식당을 추천받기 위해 주소를 입력해주세요.</h5>
+                                          <button class="button modal-close" data-bs-dismiss="modal" aria-label="close"></button>
+                                        </header>
+                                        <section class="modal-card-body">
+                                          <input class="input is-rounded posting_q1_input" type="text" class="form-control" id="address" placeholder="주소">
+                                          <div class="button-group-out">
+                                                <button class="button next-stage" onclick="to_kakao()">추천!</button>
                                             </div>
-                                        </div>
+                                        </section>
                                     </div>
                                 </div>`
             let btnGroup = $('#button-group')
@@ -317,14 +319,3 @@ function to_kakao() {
     })
 }
 
-function test() {
-    console.log('test')
-    $.ajax({
-        type: "POST",
-        url: "http://bestmealeverelasticbeanstalk-env.eba-p2pvdgmq.ap-northeast-2.elasticbeanstalk.com/test",
-        data: {},
-        success: function (response) {
-            alert(response['msg'])
-        }
-    })
-}
